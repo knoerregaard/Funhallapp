@@ -5,24 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
+import { DetailViewComponent } from './detail-view/detail-view.component';
 
 //Materialize modules
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatInputModule} from '@angular/material/input';
 import { BookingListViewComponent } from './booking-list-view/booking-list-view.component';
-import { DetailViewComponent } from './detail-view/detail-view.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
+    DetailViewComponent,
     AppComponent,
     WelcomeComponent,
     AboutComponent,
-    BookingListViewComponent,
-<<<<<<< HEAD
-    DetailViewComponent
-=======
->>>>>>> 714fc7fbb5d59521ae306163e4b3a6f129983943
+    BookingListViewComponent
   ],
   imports: [
     MatToolbarModule,
