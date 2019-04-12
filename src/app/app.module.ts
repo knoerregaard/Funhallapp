@@ -10,12 +10,13 @@ import { AboutComponent } from './about/about.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BookingListViewComponent } from './booking-list-view/booking-list-view.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     AboutComponent,
-    BookingListViewComponent
+    BookingListViewComponent,
   ],
   imports: [
     MatToolbarModule,

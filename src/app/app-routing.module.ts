@@ -6,7 +6,7 @@ import { BookingListViewComponent } from './booking-list-view/booking-list-view.
 
 const routes: Routes = [
   {
-    path : 'welcome',
+    path : 'Welcome',
     component : WelcomeComponent
   },
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
     component : AboutComponent
   },
   {
-    path : 'bookings',
+    path : 'Bookings',
     component : BookingListViewComponent
   }
 ];
