@@ -19,7 +19,7 @@ const routes: Routes = [
     component : BookingListViewComponent
   },
   {
-    path : 'details',
+    path : 'Details',
     component : DetailViewComponent
   }
 ];
