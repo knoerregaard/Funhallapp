@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingListViewComponent implements OnInit {
 
+  private bookings : Array<object> = [{
+    navn: "Peter Nielsen",
+    dato: "10. april"
+  }]
+
   constructor() { }
+
 
   ngOnInit() {
   }
