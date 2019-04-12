@@ -19,7 +19,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     WelcomeComponent,
     AboutComponent,
     BookingListViewComponent,
+<<<<<<< HEAD
     DetailViewComponent
+=======
+>>>>>>> 714fc7fbb5d59521ae306163e4b3a6f129983943
   ],
   imports: [
     MatToolbarModule,

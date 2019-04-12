@@ -7,7 +7,7 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 
 const routes: Routes = [
   {
-    path : 'welcome',
+    path : 'Welcome',
     component : WelcomeComponent
   },
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     component : AboutComponent
   },
   {
-    path : 'bookings',
+    path : 'Bookings',
     component : BookingListViewComponent
   },
   {
