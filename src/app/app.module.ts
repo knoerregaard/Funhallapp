@@ -16,7 +16,7 @@ import { BookingListViewComponent } from './booking-list-view/booking-list-view.
     AppComponent,
     WelcomeComponent,
     AboutComponent,
-    BookingListViewComponent
+    BookingListViewComponent,
   ],
   imports: [
     MatToolbarModule,

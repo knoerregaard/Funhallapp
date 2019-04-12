@@ -14,7 +14,7 @@ const routes: Routes = [
     component : AboutComponent
   },
   {
-    path : 'bookings',
+    path : 'Bookings',
     component : BookingListViewComponent
   }
 ];
