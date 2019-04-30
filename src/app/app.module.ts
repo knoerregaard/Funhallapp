@@ -10,6 +10,8 @@ import { DetailViewComponent } from './detail-view/detail-view.component';
 //Materialize modules
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { BookingListViewComponent } from './booking-list-view/booking-list-view.component';
+import { FunService } from './fun.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -23,9 +25,10 @@ import { BookingListViewComponent } from './booking-list-view/booking-list-view.
   imports: [
     MatToolbarModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FunService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

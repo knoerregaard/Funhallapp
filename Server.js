@@ -10,7 +10,8 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.get('/', (req, res) => res.status(200).send('Hello World'));
+
+app.get('/Bookings', (req, res) => res.status(200).send({hej: 'verden'}));
 
 app.get('/test', (req, res) => res.status(200).send('TestTes'));
 
