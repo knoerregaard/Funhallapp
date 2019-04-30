@@ -6,9 +6,6 @@ import { HttpClient } from '@angular/common/http';
 export class FunService {
 url = "http://localhost:3000";
 
-
-
-
   constructor(private httpClient : HttpClient) { }
   public getBookings(){
     return this.httpClient.get(this.url + '/Bookings');

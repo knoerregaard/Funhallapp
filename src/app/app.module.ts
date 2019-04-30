@@ -12,6 +12,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { BookingListViewComponent } from './booking-list-view/booking-list-view.component';
 import { FunService } from './fun.service';
 import { HttpClientModule } from '@angular/common/http';
+import { BookingsService } from './bookings.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [FunService],
+  providers: [FunService,  BookingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

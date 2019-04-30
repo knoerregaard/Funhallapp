@@ -10,13 +10,19 @@ app.use(express.urlencoded({
     extended: true
 }));
 
+let bookings = [
+  {name : 'Klaus'},
+  {name : 'Thor'},
+  {name : 'Newjan'},
+  {name : 'Christian'}
+]
 
-app.get('/Bookings', (req, res) => res.status(200).send({hej: 'verden'}));
+app.get('/Bookings', (req, res) => res.status(200).send(bookings));
 
 app.get('/test', (req, res) => res.status(200).send('TestTes'));
 
-app.post('/neworder', (req, res) =>{
-    console.log(req);
+app.post('/Bookings', (req, res) =>{
+    console.log(req.body);
     res.send("tak");
 })
 app.listen(PORT[0], () => console.log(`Example app`));
