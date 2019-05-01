@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FunService } from '../fun.service';
 
 @Component({
   selector: 'app-detail-view',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-view.component.css']
 })
 export class DetailViewComponent implements OnInit {
+  private act : string;
 
-  constructor() { }
+  constructor(private funService : FunService) { 
+    funService.getActivities().subscribe(
+      (succ)=>{
+        this.act = succ['act']
+      }, (error : any) =>{
+        console.log(error);
+      }
+    )
+  }
 
   ngOnInit() {
   }

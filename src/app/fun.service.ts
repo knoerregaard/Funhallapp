@@ -4,14 +4,17 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class FunService {
-url = "http://localhost:3000";
+url = "http://localhost:3000/";
 
 
 
 
   constructor(private httpClient : HttpClient) { }
   public getBookings(){
-    return this.httpClient.get(this.url + '/Bookings');
+    return this.httpClient.get(this.url + 'Bookings');
+  }
+  public getActivities(){
+    return this.httpClient.get(this.url + 'Activities');
   }
 //public newBooking(){
 //  return this.httpClient.post()
