@@ -60,9 +60,8 @@ app.get('/Bookings123', (req, res) => {
         console.log("Connected successfully to server");
 
         const db = client.db("Webapp");
-        // db.collection("WebCollection").findOne({navn : "Hej"}, (err, result)=>{
-        //     res.status(200).send(result)
-        // })
+
+
         db.collection("WebCollection").find().toArray((err, result)=>{
             res.status(200).send(result)
         })
