@@ -79,7 +79,7 @@ app.get('/Bookings123', (req, res) => {
     //     // result = db.collection('WebCollection').find();
     //     console.log(result);
     //     res.status(200).send("result");
-    // };
+    // };   
           
     }); 
 
