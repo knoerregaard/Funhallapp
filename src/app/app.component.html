@@ -1,8 +1,7 @@
-<header>
-    <div class="title-icon">
-        <i class="material-icons md-48">details</i>
-        <h1>Legoland</h1>
-    </div>
-</header>
-
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/bookings">Bookings</a>
+</nav>
 <router-outlet></router-outlet>
+<app-messages></app-messages>

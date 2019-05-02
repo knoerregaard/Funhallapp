@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FunService } from '../fun.service';
 import { BookingsService} from '../bookings.service';
-
+import { Booking } from '../booking';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-booking-list-view',
   templateUrl: './booking-list-view.component.html',
@@ -9,30 +9,33 @@ import { BookingsService} from '../bookings.service';
 })
 
 export class BookingListViewComponent implements OnInit {
-  public name : string;
+    bookings: Booking[];
 
-  constructor(private funService : FunService, private bookingsService: BookingsService) {
-    funService.getBookings().subscribe(
-      (suc)=>{
-        this.name = suc['name']
-      },(error: any)=>{
-        console.log(error);
-      }
-    )
-      console.log('efter getBookings');
-
-      bookingsService.getBookings().subscribe(
-        (suc)=>
-        {
-          this.name = suc['name']
-        },(error:any)=>{
-          console.log(error);
-        }
-      )
-   }
+  constructor(private bookingsService: BookingsService) { }
 
 
   ngOnInit() {
+    this.getBookings();
   }
 
+  getBookings(): void {
+    this.bookingsService.getBookings()
+    .subscribe(bookings => this.bookings = bookings)
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if(!name){
+      return;
+    }
+    this.bookingsService.addBooking({ name } as Booking)
+    .subscribe(booking => {
+      this.bookings.push(booking);
+    });
+  }
+  
+  delete(booking: Booking): void {
+    this.bookings = this.bookings.filter(h => h !== booking);
+    this.bookingsService.deleteBooking(booking).subscribe();
+  }
 }

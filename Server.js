@@ -5,11 +5,21 @@ const cors = require('cors');
 
 const PORT =[3000, process.env.PORT];
 
-app.use(cors());
+app.use(cors({
+  'Access-Control-Allow-Origin': '*'
+}));
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
 
 app.use(express.urlencoded({
     extended: true
 }));
+
+app.use(express.json());
+
 
 let bookings = [
   {name : 'Klaus'},
@@ -18,11 +28,9 @@ let bookings = [
   {name : 'Christian'}
 ]
 
-app.get('/Bookings', (req, res) => res.status(200).send(bookings));
+app.get('/', (req, res) => res.status(200).send(bookings));
 
-app.get('/test', (req, res) => res.status(200).send('TestTes'));
-
-app.post('/Bookings', (req, res) =>{
+app.post('/', (req, res) =>{
     console.log(req.body);
     res.send("tak");
 })
