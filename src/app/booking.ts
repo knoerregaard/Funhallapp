@@ -1,5 +1,5 @@
-export class Booking
+export default class Booking
 {
-  id: number;
-  name: string;
+  _id: number;
+  navn: string;
 }

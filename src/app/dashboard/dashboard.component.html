@@ -1,9 +1,9 @@
 <h3>Top Bookings</h3>
 <div class="grid grid-pad">
   <a *ngFor="let booking of bookings" class="col-1-4"
-      routerLink="/details/{{booking.id}}">
+      routerLink="/details/{{booking._id}}">
     <div class="module booking">
-      <h4>{{booking.name}}</h4>
+      <h4>{{booking.navn}}</h4>
     </div>
   </a>
 </div>

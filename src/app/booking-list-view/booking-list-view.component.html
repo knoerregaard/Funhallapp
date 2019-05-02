@@ -11,8 +11,8 @@
 
 <ul class="bookings">
   <li *ngFor="let booking of bookings">
-    <a routerLink="/details/{{booking.id}}">
-      <span class="badge">{{booking.id}}</span> {{booking.name}}
+    <a routerLink="/details/{{booking._id}}">
+      <span class="badge">{{booking._id}}</span> {{booking.navn}}
     </a>
     <button class="delete" title="delete booking"
       (click)="delete(booking)">x</button>

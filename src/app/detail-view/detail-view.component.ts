@@ -24,8 +24,8 @@ export class DetailViewComponent implements OnInit {
   }
 
   getBooking(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.bookingsService.getBooking(id)
+    const id = +this.route.snapshot.paramMap.get('_id');
+    this.bookingsService.getBooking(_id)
     .subscribe(booking => this.booking = booking);
   }
 
