@@ -17,7 +17,7 @@ const httpOptions = {
 
 export class BookingsService {
 
-  private bookingsUrl = "http://localhost:3000";
+  private bookingsUrl = "http://localhost:3000/bookings";
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   searchBookings(term: string): Observable<Booking[]>{

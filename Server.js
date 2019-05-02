@@ -5,18 +5,8 @@ const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://dbUser:chenchen@cluster0-1kji3.mongodb.net/Webapp?retryWrites=true";
 
 
-// const client = new  MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("Webapp").collection("WebCollection");
-//   collection.insert('hej')
-//   client.close();
-// });
 const PORT =[3000, process.env.PORT];
 
-
-//Corsproblematikker opstår når du forsøger at lave kald på
-//tværs af domæner. Med pakken cors kan vi diktere hvilke indkomne klient
-//opkald som vores server må tillade.
 app.use(cors({
   'Access-Control-Allow-Origin': '*'
 }));
@@ -34,12 +24,24 @@ app.use(express.urlencoded({
 app.use(express.json());
 
 
-let bookings = [
-  {name : 'Klaus'},
-  {name : 'Thor'},
-  {name : 'Newjan'},
-  {name : 'Christian'}
-]
+// let bookings = [
+//   {
+//     name : 'Klaus',
+//     id: 1
+//   },
+//   {
+//     name : 'Thor',
+//     id: 2
+//   },
+//   {
+//     name : 'Newjan',
+//     id: 3,
+//   },
+//   {
+//     name : 'Christian',
+//     id: 4
+//   }
+// ];
 
 app.get('/', (req, res) => res.status(200).send(bookings));
 
@@ -48,25 +50,9 @@ app.post('/', (req, res) =>{
     res.send("tak");
 })
 
-app.post('/Activities', (req, res) =>{
-    req.send()
-})
 app.listen(PORT[0], () => console.log(`Example app`));
 
-
-
-
-
-
-let bookings = [
-    {name : 'Klaus'},
-    {name : 'Thor'}
-]
-
-//app.get('/Bookings', (req, res) => res.status(200).send('hej'));
-
-
-app.get('/Bookings123', (req, res) => {
+app.get('/bookings', (req, res) => {
 
     const client = new MongoClient(uri, { useNewUrlParser: true } );
 
@@ -87,17 +73,7 @@ app.get('/Bookings123', (req, res) => {
 
         //   });
     });
-
-
-
-    // mongoclient.collection('WebCollection').find(), function (findErr, result) {
-    //     if (findErr) throw findErr
-    //     // result = db.collection('WebCollection').find();
-    //     console.log(result);
-    //     res.status(200).send("result");
-    // };
-
-    });
+});
 
 
 
