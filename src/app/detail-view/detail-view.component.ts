@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Booking }         from '../booking';
@@ -11,30 +11,41 @@ import { BookingsService }  from '../bookings.service';
   styleUrls: ['./detail-view.component.css']
 })
 export class DetailViewComponent implements OnInit {
-  @Input() booking: Booking;
+  booking: Booking;
 
   constructor(
     private route: ActivatedRoute,
     private bookingsService: BookingsService,
-    private location: Location
+    private location: Location,
+    private router : Router
+
   ) {}
 
   ngOnInit(): void {
-    this.getBooking();
+    // this.getBooking();
   }
 
-  getBooking(): void {
-    const id = +this.route.snapshot.paramMap.get('_id');
-    this.bookingsService.getBooking(_id)
-    .subscribe(booking => this.booking = booking);
-  }
+  // add(name: string): void {
+  //   name = name.trim();
+  //   if(!name){
+  //     return;
+  //   }
+  //   this.bookingsService.addBooking({ name } as Booking)
+  //   .subscribe(members => {
+  //     th
+  //   })
+  // }
+
+  // getBooking(): void {
+  //   const id =+ this.route.snapshot.paramMap.get('id');
+  //   this.bookingsService.getBooking(1)
+  //   .subscribe((booking => {
+  //     this.booking = booking;
+  //     console.log(this.booking)
+  //   }))
+  // }
 
   goBack(): void {
     this.location.back();
-  }
-
- save(): void {
-    this.bookingsService.updateBooking(this.booking)
-      .subscribe(() => this.goBack());
   }
 }

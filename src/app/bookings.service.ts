@@ -26,16 +26,8 @@ export class BookingsService {
     }
   }
 
-  // getBooking(id: number): Observable<Booking>{
-  //   const url = `${this.bookingsUrl + '/details'}/${id}`;
-  //   return this.http.get<Booking>(url).pipe(
-  //     tap(_ => this.log(`fetched booking id=${id}`)),
-  //     catchError(this.handleError<Booking>(`getBooking id=${id}`))
-  //   );
-  // }
-
-  getBooking(id: number): Observable<Booking[]>{
-    return this.http.get<Booking[]>(this.bookingsUrl + '/details')
+  getBooking(id: number): Observable<Booking>{
+    return this.http.get<Booking>(this.bookingsUrl + '/details')
   }
 
   getBookings(): Observable<Booking[]>{
@@ -44,21 +36,21 @@ export class BookingsService {
 
   addBooking(booking: Booking): Observable<Booking> {
     return this.http.post<Booking>(this.bookingsUrl, booking, httpOptions).pipe(
-      tap((newBooking: Booking) => this.log(`added booking w/ ud =${newBooking._id}`)),
+      tap((newBooking: Booking) => this.log(`added booking w/ ud =${newBooking.id}`)),
       catchError(this.handleError<Booking>('addBooking'))
     );
   }
 
   updateBooking(booking: Booking): Observable<any>{
     return this.http.put(this.bookingsUrl, booking, httpOptions).pipe(
-      tap(_ => this.log(`updated booking id=${booking._id}`)),
+      tap(_ => this.log(`updated booking id=${booking.id}`)),
       catchError(this.handleError<any>('updateBooking'))
     );
   }
 
 
   deleteBooking (booking: Booking | number): Observable<Booking> {
-    const id = typeof booking === 'number' ? booking : booking._id;
+    const id = typeof booking === 'number' ? booking : booking.id;
     const url = `${this.bookingsUrl}/${id}`;
 
     return this.http.delete<Booking>(url, httpOptions).pipe(

@@ -21,17 +21,17 @@ export class BookingListViewComponent implements OnInit {
   getBookings(): void {
     this.bookingsService.getBookings()
     .subscribe((bookings) => {
-      this.bookings = bookings; console.log(this.bookings)
-    }
-    )
+      this.bookings = bookings;
+      console.log(this.bookings)
+    })
   }
 
-  add(navn: string): void {
-    navn = navn.trim();
-    if(!navn){
+  add(name: string): void {
+    name = name.trim();
+    if(!name){
       return;
     }
-    this.bookingsService.addBooking({ navn } as Booking)
+    this.bookingsService.addBooking({ name } as Booking)
     .subscribe(booking => {
       this.bookings.push(booking);
     });

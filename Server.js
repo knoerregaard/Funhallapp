@@ -2,14 +2,13 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
-const MONGO_URL = "mongodb+srv://dbUser:chenchen@cluster0-1kji3.mongodb.net/Webapp?retryWrites=true";
-
+const MONGO_URL = "mongodb+srv://newj0001:kylling-123@newj0001-yueqp.mongodb.net/webapp?retryWrites=true";
 
 let db = "";
 
-MongoClient.connect(MONGO_URL, function (err, client) {
+MongoClient.connect(MONGO_URL, { useNewUrlParser: true }, function (err, client) {
   if (err) throw err;
-  db = client.db('Webapp');
+  db = client.db('webapp');
 });
 
 const PORT =[3000, process.env.PORT];
@@ -30,25 +29,29 @@ app.use(express.urlencoded({
 
 app.use(express.json());
 
-app.post('/', (req, res) =>{
-    console.log(req.body);
-    res.send("tak");
-})
-
-
 app.get('/bookings', (req, res) => {
-  db.collection("WebCollection").find().toArray( function(err, result){
-
+  db.collection("webcollection").find().toArray( function(err, result){
     console.log(result);
     res.status(200).send(result)
   })
 });
 
-
 app.listen(PORT[0], () => console.log(`Example app listening on port ${PORT[0]}!`))
 
+app.post("/bookings", function(req, res){
+  var newMember = req.body;
+  newMember.createName = new Members();
+  db.collection("webcollection").insertOne(newMember, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new contact.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
 
-
-
-
-
+// Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}

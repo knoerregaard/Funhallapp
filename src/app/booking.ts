@@ -1,5 +1,7 @@
-export default class Booking
+import { Member } from './members';
+export class Booking
 {
-  _id: number;
-  navn: string;
+  id: number;
+  name: string;
+  member: Member[];
 }
