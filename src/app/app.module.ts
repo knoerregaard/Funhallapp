@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 //Materialize modules
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -25,7 +26,8 @@ import { MessagesComponent } from './messages/messages.component';
     BookingListViewComponent,
     DashboardComponent,
     BookingSearchComponent,
-    MessagesComponent
+    MessagesComponent,
+
   ],
   imports: [
     FormsModule,
@@ -33,6 +35,8 @@ import { MessagesComponent } from './messages/messages.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    MatTabsModule,
+    MatToolbarModule
   ],
   providers: [BookingsService],
   bootstrap: [AppComponent]

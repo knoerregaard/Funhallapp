@@ -20,5 +20,4 @@ export class DashboardComponent implements OnInit {
     this.bookingService.getBookings()
     .subscribe(bookings => this.bookings = bookings.slice(1, 5));
   }
-
 }

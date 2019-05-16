@@ -1,7 +1,19 @@
 <h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/bookings">Bookings</a>
-</nav>
+
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Udvalgte">
+    <div class="example-small-box mat-elevation-z4">
+      <a routerLink="/dashboard"></a>
+    </div>
+  </mat-tab>
+  <mat-tab label="Vis Alle">
+    <div class="example-large-box mat-elevation-z4">
+      <a routerLink="/bookings"></a>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+
+

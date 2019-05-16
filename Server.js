@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
-const MONGO_URL = "mongodb+srv://newj0001:chenchen-123@newj0001-yueqp.mongodb.net/webapp?retryWrites=true";
+const MONGO_URL = "mongodb+srv://newj0001:kylling-123@newj0001-yueqp.mongodb.net/webapp?retryWrites=true";
 
 let db = "";
 
