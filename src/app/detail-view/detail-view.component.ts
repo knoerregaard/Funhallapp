@@ -12,6 +12,7 @@ import { BookingsService }  from '../bookings.service';
 })
 export class DetailViewComponent implements OnInit {
   booking: Booking;
+  bookings: Booking[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,9 +23,13 @@ export class DetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.getBooking();
+    this.getBookings();
   }
 
+  getBookings(): void {
+    this.bookingsService.getBookings()
+    .subscribe(bookings => this.bookings = bookings.slice(1, 5));
+  }
   // add(name: string): void {
   //   name = name.trim();
   //   if(!name){

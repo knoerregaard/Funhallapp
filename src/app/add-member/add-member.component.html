@@ -1,0 +1,18 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Personlige informationer</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="form-add">
+<form class="new-member-form">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey"><br>
+    <div class="add-member">
+        <button mat-raised-button color="primary" [routerLink]="['/addmember']" routerLinkActive="router-link-active" >Tilføj Medlem</button>
+    </div>
+</form>
+</div>

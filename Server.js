@@ -40,7 +40,6 @@ app.listen(PORT[0], () => console.log(`Example app listening on port ${PORT[0]}!
 
 app.post("/bookings", function(req, res){
   var newMember = req.body;
-  newMember.createName = new Members();
   db.collection("webcollection").insertOne(newMember, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new contact.");

@@ -7,6 +7,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { AboutComponent } from './about/about.component';
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatIconModule, MatIcon} from '@angular/material/icon';
+import {MatListModule, MatList} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 //Materialize modules
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -16,6 +20,8 @@ import { BookingsService } from './bookings.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BookingSearchComponent } from './booking-search/booking-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AddMemberComponent } from './add-member/add-member.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +33,7 @@ import { MessagesComponent } from './messages/messages.component';
     DashboardComponent,
     BookingSearchComponent,
     MessagesComponent,
+    AddMemberComponent,
 
   ],
   imports: [
@@ -36,7 +43,11 @@ import { MessagesComponent } from './messages/messages.component';
     AppRoutingModule,
     HttpClientModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatFormFieldModule
   ],
   providers: [BookingsService],
   bootstrap: [AppComponent]
