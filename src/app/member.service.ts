@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Member } from './members';
+import { TouchSequence } from 'selenium-webdriver';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,6 +23,10 @@ export class MemberService {
 
   addMember(member: Member): Observable<Member> {
     return this.http.post<Member>(this.membersUrl, member, httpOptions).pipe(tap((newMember: Member) => this.log(`added member w/ ud =${newMember.name}`)), catchError(this.handleError<Member>('addMember')));
+  }
+
+  getMembers(): Observable<Member[]>{
+    return this.http.get<Member[]>(this.membersUrl + '/bookings')
   }
 
   /**

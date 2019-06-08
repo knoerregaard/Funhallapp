@@ -8,11 +8,12 @@
 
 
 <div class="form-add">
-<form class="new-member-form">
-    First name:<br>
-    <input type="text" name="firstname" value="Mickey"><br>
+<form class="new-member-form" method="POST">
+    <label> First name:
+      <input #member name="member" type="text"/>
+    </label>
     <div class="add-member">
-        <button mat-raised-button color="primary" [routerLink]="['/addmember']" routerLinkActive="router-link-active" >Tilføj Medlem</button>
+        <button (click)="add(member.value); member.value=''" mat-raised-button color="primary">Tilføj Medlem</button>
     </div>
 </form>
 </div>

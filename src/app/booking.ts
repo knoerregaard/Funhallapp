@@ -1,7 +1,8 @@
 import { Member } from './members';
+
 export class Booking
 {
-  id: number;
+  _id: any;
   name: string;
-  member: Member[];
+  members: Member[];
 }
